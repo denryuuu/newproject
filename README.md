@@ -60,5 +60,6 @@ Googleマップ（地図機能）
 https://www.figma.com/file/iS2tpjzHg4M4v8AKD3Yj3q/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3%EF%BC%88%E8%81%96%E5%9C%B0%E5%B7%A1%E7%A4%BC%E3%83%9E%E3%83%83%E3%83%97%EF%BC%89?type=design&mode=design&t=RuIpIpIWXSIpMdWw-0
 
 ## ■ ER図　　
-![app](https://github.com/denryuuu/newproject/assets/138588277/1ba4d833-9031-4c3f-9e53-05810782582d)
+![app](https://github.com/denryuuu/newproject/assets/138588277/8f18c905-2d8c-4fa4-b849-f7a9d923224b)
+
 
