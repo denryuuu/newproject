@@ -1,34 +1,28 @@
-version: '3.8'
-
 services:
   db:
-    image: mysql:5.7
-    restart: always
+    image: mysql:latest
+    platform: linux/amd64
     environment:
+      TZ: Asia/Tokyo
       MYSQL_DATABASE: 'ebichu_map'
       MYSQL_USER: 'ebichu'
       MYSQL_PASSWORD: 'password'
       MYSQL_ROOT_PASSWORD: 'root_password'
+    volumes:
+      - mysql_data:/var/lib/mysql
     ports:
       - '3306:3306'
 
-  backend:
-    build:
-      context: .
-      dockerfile: Dockerfile.backend
+  web:
+    build: .
+    command: rails new . --force --database=mysql --skip-bundle
+    ports:
+      - "3000:3000"
+    environment:
+      - TZ=Asia/Tokyo
     depends_on:
       - db
-    ports:
-      - '3000:3000'
-    environment:
-      DATABASE_URL: 'mysql2://ebichu:password@db:3306/ebichu_map'
-
-  frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile.frontend
-    ports:
-      - '8080:8080'
-    environment:
-      REACT_APP_API_URL: 'http://localhost:3000'
-      
+volumes:
+  mysql_data:
+  bundle_data:
+  node_modules:
