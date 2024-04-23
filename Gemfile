@@ -26,6 +26,11 @@ gem "stimulus-rails"
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem "cssbundling-rails"
 
+# Bootstrap for styling
+gem "bootstrap", "~> 5.3.0"
+gem 'jquery-rails'
+gem 'bootstrap-sass'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
