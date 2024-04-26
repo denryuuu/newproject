@@ -1,0 +1,15 @@
+<h1>聖地一覧</h1>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <strong>タイトル:</strong> <%= post.title %><br>
+      <strong>場所の名称:</strong> <%= post.location_name %><br>
+      <strong>住所:</strong> <%= post.address %><br>
+      <strong>詳細:</strong> <%= post.body %>
+      <%= link_to '詳細を見る', post_path(post) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to '聖地投稿', new_post_path, class: "btn btn-primary" %>

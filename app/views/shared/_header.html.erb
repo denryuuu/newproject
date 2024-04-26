@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
   <div class="container-fluid">
     <%= link_to root_path, class: 'navbar-brand' do %>
       <%= image_tag 'logo1.png', height: '100'%>
@@ -15,10 +15,10 @@
           <%= link_to 'プロフィール', '#', class: 'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to '投稿する', '#', class: 'nav-link' %>
+          <%= link_to '投稿する', new_post_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to 'スポット一覧', '#', class: 'nav-link' %> <!-- 新しいリンク追加 -->
+          <%= link_to 'スポット一覧', posts_path, class: 'nav-link' %> <!-- 新しいリンク追加 -->
         </li>
         <li class="nav-item">
           <%= link_to '設定', '#', class: 'nav-link' %>
