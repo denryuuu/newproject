@@ -1,2 +1,48 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+.map-container {
+    position: relative;
+    width: 100%;
+    text-align: center; /* 中央揃えのスタイリング */
+}
+
+.map-image {
+    width: 100%; /* 画像がコンテナの幅に合わせて拡大/縮小されるように設定 */
+    height: auto; /* 高さは自動で調整 */
+}
+  
+  .map-buttons {
+    position: absolute;
+    top: 50%;  /* 親要素の中央に配置 */
+    left: 50%; /* 親要素の中央に配置 */
+    transform: translate(-50%, -50%); /* ぴったり中央にくるように調整 */
+    text-align: center;
+  }
+  
+  .map-buttons button {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    opacity: 0.9;
+  }
+  
+  .map-buttons button:hover {
+    opacity: 1;
+  }
+  
+.card-custom {
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+
+  .card-header {
+    background-color: #f8f9fa;
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+}
