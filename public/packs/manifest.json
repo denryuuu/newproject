@@ -1,0 +1,14 @@
+{
+  "entrypoints": {
+    "places": {
+      "js": [
+        "/packs/js/places-133ca80dc90853f28958.js"
+      ],
+      "js.map": [
+        "/packs/js/places-133ca80dc90853f28958.js.map"
+      ]
+    }
+  },
+  "places.js": "/packs/js/places-133ca80dc90853f28958.js",
+  "places.js.map": "/packs/js/places-133ca80dc90853f28958.js.map"
+}
