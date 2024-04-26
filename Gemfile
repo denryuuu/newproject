@@ -29,7 +29,8 @@ gem "cssbundling-rails"
 # Bootstrap for styling
 gem "bootstrap", "~> 5.3.0"
 gem 'jquery-rails'
-gem 'bootstrap-sass'
+gem 'sassc-rails'
+gem 'sorcery'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
