@@ -1,15 +1,7 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card">
-        <img class="card-img-top" src="..." alt="聖地画像">
-        <div class="card-body">
-          <h5 class="card-title">聖地名</h5>
-          <p class="card-text">この聖地についての短い説明。</p>
-          <a href="#" class="btn btn-primary">詳細を見る</a>
-        </div>
-      </div>
-    </div>
-    <!-- 繰り返し -->
+<div class="map-container">
+  <img src="/assets/mapimage.png" alt="Map Image" class="map-image">
+  <div class="map-buttons">
+    <button onclick="location.href='<%= new_post_path %>'">投稿する</button>
+    <button onclick="location.href='<%= posts_path %>'">聖地を見る</button>
   </div>
 </div>

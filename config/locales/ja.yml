@@ -1,0 +1,13 @@
+ja:
+  helpers:
+    label:
+      post:
+        title: "タイトル"
+        body: "本文"
+        post_image: "投稿画像"
+  submit:
+    create: "作成"
+    update: "更新"
+  posts:
+    new:
+      title: "聖地投稿"
