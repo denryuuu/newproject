@@ -11,11 +11,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbeqHyrx7IseNVW5Bzbx3T5_6AT9A92Ec&libraries=places&callback=initAutocomplete" async defer></script>
   </head>
   <body>
-    <% if logged_in? %>
-      <%= render 'shared/header' %>
-    <% else %>
-      <%= render 'shared/before_login_header' %>
-    <% end %>
+    <%= render 'shared/before_login_header' %>
     <%= yield %> <!-- メインコンテンツを表示 -->
     <%= render 'shared/footer' %> <!-- フッター部分 -->
   </body>
