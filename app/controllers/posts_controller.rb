@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :require_login, only: [:new, :create]
+
   def index
     @posts = Post.all
   end
@@ -14,10 +16,6 @@ class PostsController < ApplicationController
     else
       render :new
     end
-  end
-  
-  def index
-    @posts = Post.all
   end
   
   private
