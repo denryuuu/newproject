@@ -3,8 +3,8 @@ ja:
     label:
       post:
         title: "タイトル"
-        body: "聖地詳細・説明等"
-        post_image: "投稿画像"
+        content: "聖地詳細・説明等"
+        image: "投稿画像"
   submit:
     create: "作成"
     update: "更新"
@@ -14,9 +14,9 @@ ja:
   header:
     login: ログイン
     logout: ログアウト
-    board: 掲示板
-    board_index: 掲示板一覧
-    create_board: 掲示板作成
+    post: 掲示板
+    bpost_index: 掲示板一覧
+    create_post: 掲示板作成
     bookmark_index: ブックマーク一覧
     profile: プロフィール
   user_sessions:
