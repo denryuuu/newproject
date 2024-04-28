@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get "up" => "rails/health#show", as: :rails_health_check
 
-  resources :posts, only: [:new, :create, :index]
+  resources :posts, only: [:new, :create, :index, :show]
   resources :users, only: %i[new create]
 
   get 'login', to: 'user_sessions#new'

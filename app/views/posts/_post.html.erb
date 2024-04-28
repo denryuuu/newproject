@@ -1,0 +1,26 @@
+<div class="col-sm-12 col-lg-4 mb-3">
+    <div class="card">
+      <% if post.image.attached? %>
+        <%= image_tag post.image, class: "card-img-top", width: "300", height: "200" %>
+      <% else %>
+        <%= image_tag "noimage.png", class: "card-img-top", width: "300", height: "200" %>
+      <% end %>
+      <div class="card-body">
+        <div class="d-flex">
+          <h4 class="card-title">
+            <%= post.title %>
+          </h4>
+          <div class='ms-auto'>
+          </div>
+        </div>
+        <ul class="list-inline">
+          <li><i class="bi bi-calendar"></i><%= l post.created_at, format: :short %></li>
+        </ul>
+        <p><i class="bi bi-map"></i><%= post.address %></p>
+        <div class="content">
+          <p><%= post.content %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
