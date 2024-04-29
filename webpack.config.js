@@ -17,7 +17,6 @@ module.exports = {
     cacheWithContext: false,
   },
   output: {
-    libraryTarget: 'commonjs',
     path: path.join(__dirname, '.webpack'),
     filename: '[name].bundle.js',
   },
@@ -45,13 +44,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'public', './app/javascript/application.js'),
-      filename: "application.js",
+      template: path.join(__dirname, 'public', './app/javascript/application.html'),
+      filename: "application.html",
       chunks: ['application']
     }),
      new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'public', './app/javascript/controllers/index.js'),
-      filename: "index.js",
+      template: path.join(__dirname, 'public', './app/javascript/controllers/index.html'),
+      filename: "index.html",
       chunks: ['index']
     })
   ],
