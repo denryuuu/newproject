@@ -7,7 +7,7 @@ module.exports = {
   context: __dirname,
   mode: slsw.lib.webpack.isLocal ? 'development' : 'production',
   entry: {
-    application: './app/javascript/application.js'
+    application: path.resolve(__dirname, 'app/javascript/application.js')
   },
   devtool: slsw.lib.webpack.isLocal ? 'cheap-module-eval-source-map' : 'source-map',
   resolve: {
