@@ -18,6 +18,7 @@
     "webpack-cli": "^3.3.12"
   },
   "scripts": {
+    "build": "yarn build:esbuild && yarn build:css",
     "build:esbuild": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
     "build:webpack": "webpack --config webpack.config.js",
     "build:css:compile": "sass ./app/assets/stylesheets/application.bootstrap.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules",
