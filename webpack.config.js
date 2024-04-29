@@ -9,7 +9,7 @@ module.exports = {
   entry: {
     application: './app/javascript/application.js',
     index: './app/javascript/controllers/index.js',
-}
+  },
   devtool: slsw.lib.webpack.isLocal ? 'cheap-module-eval-source-map' : 'source-map',
   resolve: {
     extensions: ['.mjs', '.json', '.ts'],
@@ -19,7 +19,7 @@ module.exports = {
   output: {
     libraryTarget: 'commonjs',
     path: path.join(__dirname, '.webpack'),
-    filename: '[name].js',
+    filename: '[name].bundle.js',
   },
   target: 'node',
   externals: [nodeExternals()],
@@ -44,11 +44,15 @@ module.exports = {
     ],
   },
   plugins: [
-    // new ForkTsCheckerWebpackPlugin({
-    //   eslint: true,
-    //   eslintOptions: {
-    //     cache: true
-    //   }
-    // })
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'public', './app/javascript/application.js'),
+      filename: "application.js",
+      chunks: ['application']
+    }),
+     new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'public', './app/javascript/controllers/index.js'),
+      filename: "index.js",
+      chunks: ['index']
+    })
   ],
 };
