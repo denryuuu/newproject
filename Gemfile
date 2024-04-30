@@ -34,7 +34,7 @@ gem 'sorcery'
 gem 'rails-i18n', '~> 7.0.0'
 gem 'kaminari'
 gem 'bootstrap5-kaminari-views'
-
+gem 'pg'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
