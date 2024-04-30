@@ -32,7 +32,6 @@ gem 'jquery-rails'
 gem 'sassc-rails'
 gem 'sorcery'
 gem 'rails-i18n', '~> 7.0.0'
-gem 'webpacker'
 gem 'kaminari'
 gem 'bootstrap5-kaminari-views'
 
