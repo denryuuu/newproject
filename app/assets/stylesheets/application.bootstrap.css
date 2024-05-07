@@ -1,6 +1,14 @@
-input.btn-primary {
-  background-color: #7aabff; /* Bootstrap の水色 */
-  border-color: #7aabff; /* 枠線も同じ色に */
+
+.btn-primary {
+  background-color: #fb61bd; /* 水色 */
+  border-color: #fb61bd; /* 枠も水色に */
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: #fb61bd; /* 濃い水色 */
+  border-color: #fb61bd; /* 枠も濃い水色に */
 }
 
 .map-container {
