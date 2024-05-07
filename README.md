@@ -50,7 +50,7 @@ TwitterやInstagram等のSNSでサービスの利用を呼びかける。
 ルビー  
 Ruby on Rails  
 ### データベース
-MySQL(開発環境)
+PostgreSQL
 ### ソースコードの管理
 Git・GitHub
 ### 外部API
