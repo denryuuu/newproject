@@ -1,6 +1,6 @@
 <div class="col-sm-12 col-lg-4 mb-3">
     <div class="card">
-      <% if post.image.attached? %>
+      <% if post.image.present? %>
         <%= image_tag post.image, class: "card-img-top", width: "300", height: "200" %>
       <% else %>
         <%= image_tag "noimage.png", class: "card-img-top", width: "300", height: "200" %>
