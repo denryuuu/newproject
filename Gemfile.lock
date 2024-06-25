@@ -326,7 +326,7 @@ DEPENDENCIES
   carrierwave
   cssbundling-rails
   debug
-  draper
+  draper (= 4.0.2)
   jquery-rails
   jsbundling-rails
   kaminari
