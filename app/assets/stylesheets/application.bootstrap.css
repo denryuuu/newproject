@@ -52,3 +52,13 @@
 .content {
   font-size: 20px; /* 内容の文字サイズ */
 }
+
+.nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.header-text {
+  /* 必要に応じて追加のスタイルをここに */
+  margin-left: 10px; /* 画像とテキストの間のスペースを調整 */
+}
