@@ -35,7 +35,7 @@ gem 'rails-i18n', '~> 7.0.0'
 gem 'kaminari'
 gem 'bootstrap5-kaminari-views'
 gem 'pg'
-gem 'draper'
+gem 'draper', '4.0.2'
 gem 'carrierwave'
 
 # Use Redis adapter to run Action Cable in production
