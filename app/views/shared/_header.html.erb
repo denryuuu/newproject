@@ -25,7 +25,9 @@
             <div class='dropdown-item'><%= current_user.decorate.full_name %></div>
             <div class='dropdown-divider'></div>
             <%= link_to t('header.profile'), profile_path, class: 'dropdown-item' %>
-            <%= link_to t('header.logout'), logout_path, class: 'dropdown-item', data: { turbo_method: :delete } %>
+            <%= form_with url: logout_path, method: :delete do %>
+              <%= submit_tag t('header.logout'), class: 'dropdown-item' %>
+            <% end %>
           </div>
         </li>
       </ul>
