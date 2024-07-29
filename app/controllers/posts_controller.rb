@@ -8,11 +8,12 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
     if @post.save
-      redirect_to posts_path, notice: '投稿が成功しました'
+      redirect_to posts_path, success: t('defaults.flash_message.created', item: Post.model_name.human)
     else
-      render :new
+      flash.now[:danger] = t('defaults.flash_message.not_created', item: Board.model_name.human)
+      render :new, status: :unprocessable_entity
     end
   end
   
