@@ -1,5 +1,5 @@
 <%= form_with model: @post,data: { turbo: false } do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
+  <%= render 'shared/flash_message', object: f.object %>
   <div class="mb-3">
     <%= f.label :title %>
     <%= f.text_field :title, class: "form-control" %>
