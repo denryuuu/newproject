@@ -1,0 +1,4 @@
+body .btn-primary {
+    background-color: #ff7aaf; 
+    border-color: #ff7aaf; /* 枠線も同じ色に */
+  }

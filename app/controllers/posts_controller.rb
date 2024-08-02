@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.page(params[:page])
+    @posts = Post.includes(:user).page(params[:page])
   end
 
   def new
@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path, success: t('defaults.flash_message.created', item: Post.model_name.human)
     else
-      flash.now[:danger] = t('defaults.flash_message.not_created', item: Board.model_name.human)
+      flash.now[:danger] = t('defaults.flash_message.not_created', item: Post.model_name.human)
       render :new, status: :unprocessable_entity
     end
   end
