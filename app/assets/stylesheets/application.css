@@ -2,3 +2,9 @@ body .btn-primary {
     background-color: #ff7aaf; 
     border-color: #ff7aaf; /* 枠線も同じ色に */
   }
+body .btn-primary:hover,
+body .btn-primary:focus,
+body .btn-primary:active {
+    background-color: #e06693;
+    border-color: #e06693;
+}
