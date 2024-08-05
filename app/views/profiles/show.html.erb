@@ -1,22 +1,41 @@
+<% content_for :title, "プロフィール | EBC MAP" %>
 <div class="container pt-3">
-  <div class="row">
-    <div class="col-md-10 offset-md-1">
-      <h1 class="float-left mb-5"><%= t('.title') %></h1>
-      <%= link_to t('defaults.edit'), edit_profile_path, class: 'btn btn-success float-right' %>
-      <table class="table">
-        <tr>
-          <th scope="row"><%= User.human_attribute_name(:email) %></th>
-          <td><%= current_user.email %></td>
-        </tr>
-        <tr>
-          <th scope="row"><%= User.human_attribute_name(:full_name) %></th>
-          <td><%= current_user.decorate.full_name %></td>
-        </tr>
-        <tr>
-          <th scope="row"><%= User.human_attribute_name(:avatar) %></th>
-          <td><%= image_tag current_user.avatar_url, class: 'rounded-circle', size: '50x50' %></td>
-        </tr>
-      </table>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <!-- プロフィールアイコンと名前 -->
+      <div class="text-center mb-4">
+        <%= image_tag current_user.avatar_url, class: 'rounded-circle', size: '100x100' %>
+        <h2 class="mt-3 border-bottom pb-2"><%= current_user.decorate.full_name %></h2>
+      </div>
+      
+      <!-- 編集ボタン -->
+      <div class="text-right mb-4">
+        <%= link_to t('defaults.edit'), edit_profile_path, class: 'btn btn-primary' %>
+      </div>
+
+      <!-- プロフィール情報テーブル -->
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <table class="table">
+            <tr>
+              <th scope="row"><%= User.human_attribute_name(:full_name) %></th>
+              <td><%= current_user.decorate.full_name %></td>
+            </tr>
+            <tr>
+              <th scope="row"><%= User.human_attribute_name(:email) %></th>
+              <td><%= current_user.email %></td>
+            </tr>
+            <tr>
+              <th scope="row"><%= User.human_attribute_name(:location) %></th>
+              <td><%= current_user.location %></td>
+            </tr>
+            <tr>
+              <th scope="row"><%= User.human_attribute_name(:favorite) %></th>
+              <td><%= current_user.favorite %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>
