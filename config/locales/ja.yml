@@ -46,14 +46,28 @@ ja:
       post: "投稿"
     attributes:
       user:
+        full_name: 名前
         email: メールアドレス
         last_name: 姓
         first_name: 名
         password: パスワード
         password_confirmation: パスワード確認
+        location: 住んでいるところ
+        favorite: 推し
   defaults:
+    edit: 編集
     flash_message:
       created: "%{item}を作成しました"
       not_created: "%{item}を作成出来ませんでした"
       require_login: ログインしてください
-   
+      updated: "プロフィールが更新されました"
+  profiles:
+    show:
+      title: プロフィール
+      full_name: 名前
+    edit:
+      title: プロフィール編集
+      to_login_page: "ログインページに戻る"
+    update:
+      success: "プロフィールが更新されました"
+      failure: "プロフィールの更新に失敗しました"
