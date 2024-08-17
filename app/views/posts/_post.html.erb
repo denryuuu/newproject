@@ -1,3 +1,4 @@
+<% content_for :title, "聖地投稿 | EBC MAP" %>
 <div class="col-sm-12 col-lg-4 mb-3">
 <div id="post-id-<%= post.id %>">
     <div class="card">
@@ -9,25 +10,34 @@
       <div class="card-body">
         <div class="d-flex">
           <h4 class="card-title">
-            <%= post.title %>
+            <%= link_to post.title, post_path(post), class: "card-title" %>
           </h4>
-          <div class='ms-auto'>
-          <%= link_to '#', id: 'button-edit-#{post.id}' do %>
-              <i class="bi bi-pencil-fill"></i>
-            <% end %>
-            <%= link_to '#', id: 'button-delete-#{post.id}', method: :delete, data: {confirm: ''} do %>
-              <i class="bi bi-trash-fill"></i>
-            <% end %>
-          </div>
+          <% if current_user.own?(post) %>
+            <div class='ms-auto'>
+              <%= link_to edit_post_path(post), id: "button-edit-#{post.id}", style: "text-decoration: none;" do %>
+                <i class="bi bi-pencil-fill"></i>
+              <% end %>
+              <%= link_to post_path(post), id: "button-delete-#{post.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
+                <i class="bi bi-trash-fill"></i>
+              <% end %>
+            </div>
+          <% end %>
         </div>
-        <ul class="list-inline">
-          <p><i class="bi bi-calendar"></i><%= l post.created_at, format: :short %></p>
-        </ul>
-         <p><i class="bi bi-person"></i><%= post.user.decorate.full_name %></p>
-        <p><i class="bi bi-map"></i><%= post.address %></p>
+        <p><i class="bi bi-geo-alt"></i><%= post.address %></p>
         <div class="content">
           <p><%= post.content %></p>
         </div>
+        <ul class="list-inline d-flex align-items-center">
+          <li class="list-inline-item">
+            <%= image_tag post.user.avatar_url, class: 'rounded-circle', size: '30x30' %>
+          </li>
+          <li class="list-inline-item">
+            <%= post.user.decorate.full_name %>
+          </li>
+          <li class="list-inline-item ms-auto">
+            <i class="bi bi-calendar"></i><%= l post.created_at, format: :short %>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
