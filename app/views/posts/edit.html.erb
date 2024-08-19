@@ -1,0 +1,11 @@
+<% content_for :title, "投稿編集 | EBC MAP" %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="title-background">
+        <h1><%= t('.title') %></h1>
+      </div>
+        <%= render 'form', post: @post %>
+    </div>
+  </div>
+</div>
