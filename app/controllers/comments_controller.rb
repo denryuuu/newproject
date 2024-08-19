@@ -1,13 +1,19 @@
 class CommentsController < ApplicationController
   def create
-    comment = current_user.comments.build(comment_params)
-    if comment.save
-      redirect_to post_path(comment.post), success: t('defaults.flash_message.created', item: Comment.model_name.human)
+    @comment = current_user.comments.build(comment_params)
+    if @comment.save
+      render turbo_stream: turbo_stream.append("table-comment", partial: "comments/comment", locals: { comment: @comment })
     else
-      redirect_to post_path(comment.post), danger: t('defaults.flash_message.not_created', item: Comment.model_name.human)
+      render turbo_stream: turbo_stream.replace("comment-form", partial: "comments/form", locals: { comment: @comment })
     end
   end
-  
+
+  def destroy
+    @comment = current_user.comments.find(params[:id])
+    @comment.destroy
+    render turbo_stream: turbo_stream.remove("comment-#{@comment.id}")
+  end
+
   private
   
   def comment_params
