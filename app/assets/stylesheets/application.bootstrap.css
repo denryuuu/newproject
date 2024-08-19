@@ -67,13 +67,22 @@ body {
 .title-background {
   background-color: #ff7aaf; /* タイトルの背景色を設定 */
   color: #ffffff; /* タイトルの文字色を白に設定 */
-  width: 100%; /* 横幅を100%に設定 */
+  width: 100vw; /* 横幅を100%に設定 */
   padding: 1rem 0; /* 上下にパディングを追加 */
   margin-bottom: 1.5rem; /* 下のマージンを追加 */
+  position: relative;
   display: flex; /* 子要素の整列を制御 */
   align-items: center; /* 垂直方向の中央揃え */
   justify-content: center; /* 水平方向の中央揃え */
+  left: 50%; /* 中央揃えのための調整 */
+  right: 50%; /* 中央揃えのための調整 */
+  transform: translateX(-50%); /* 中央揃えのための調整 */
 }
+
+.title-background h1 {
+  font-size: 1.5rem; /* サイズを適切に調整 */
+}
+
 
 h1 {
   font-size: 2.5rem;

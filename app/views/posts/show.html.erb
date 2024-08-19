@@ -1,0 +1,62 @@
+<% content_for :title, "聖地詳細 | EBC MAP" %>
+<div class="container pt-5">
+  <div class="row mb-3">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="title-background">
+        <h1><%= t('.title') %></h1>
+      </div>
+      <article class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-3">
+              <% if @post.image.present? %>
+                <%= image_tag @post.image.url, class: "img-fluid", width: "300", height: "200" %>
+              <% else %>
+                <%= image_tag "noimage.png", class: "img-fluid", width: "300", height: "200" %>
+              <% end %>
+            </div>
+        <div class="col-md-9">
+          <div class="d-flex justify-content-between align-items-center">
+            <h3><%= @post.title %></h3>
+              <% if current_user.own?(@post) %>
+                <div class='d-flex justify-content-end'>
+                  <%= link_to edit_post_path(@post), id: "button-edit-#{@post.id}", style: "text-decoration: none;" do %>
+                    <i class='bi bi-pencil-fill'></i>
+                  <% end %>
+                  <%= link_to post_path(@post), id: "button-delete-#{@post.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
+                    <i class="bi bi-trash-fill"></i>
+                  <% end %>
+                </div>
+              <% end %>
+          </div>
+          <p><i class="bi bi-geo-alt"></i> <%= @post.address %></p>
+          <div class="content">
+            <p><%= simple_format(@post.content) %></p>
+          </div>
+        <ul class="list-inline d-flex align-items-center">
+          <li class="list-inline-item">
+            <%= image_tag @post.user.avatar_url, class: 'rounded-circle', size: '30x30' %>
+          </li>
+          <li class="list-inline-item">
+            <%= @post.user.decorate.full_name %>
+          </li>
+          <li class="list-inline-item ms-auto">
+            <i class="bi bi-calendar"></i><%= l @post.created_at, format: :short %>
+          </li>
+        </ul>
+      </article>
+    </div>
+      </div>
+      <%= render 'comments/form', comment: @comment, post: @post %>
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <table class="table">
+            <tbody id="table-comment">
+              <%= render @comments %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
