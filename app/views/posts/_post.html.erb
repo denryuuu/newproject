@@ -34,8 +34,11 @@
           <li class="list-inline-item">
             <%= post.user.decorate.full_name %>
           </li>
+          <li class="list-inline-item flex-grow-1 text-center">
+            <i class="bi bi-chat"></i>  <%= post.comments.count %>
+          </li>
           <li class="list-inline-item ms-auto">
-            <i class="bi bi-calendar"></i><%= l post.created_at, format: :short %>
+            <i class="bi bi-calendar"></i><%= l post.created_at.in_time_zone('Tokyo'), format: :short %>
           </li>
         </ul>
       </div>
