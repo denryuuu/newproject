@@ -39,10 +39,7 @@
           </li>
           <li class="list-inline-item">
             <%= @post.user.decorate.full_name %>
-          </li>
-          <li class="list-inline-item ms-auto">
-            <i class="bi bi-calendar"></i><%= l @post.created_at, format: :short %>
-          </li>
+          <%= l @post.created_at.in_time_zone('Tokyo'), format: :short %>
         </ul>
       </article>
     </div>
