@@ -23,6 +23,8 @@
             </div>
           <% end %>
         </div>
+        <p class="location-name">
+        <strong><%= post.location_name %></strong></p>
         <p><i class="bi bi-geo-alt"></i><%= post.address %></p>
         <div class="content">
           <p><%= post.content %></p>
@@ -34,8 +36,11 @@
           <li class="list-inline-item">
             <%= post.user.decorate.full_name %>
           </li>
-          <li class="list-inline-item flex-grow-1 text-center">
+          <li class="list-inline-item ms-auto">
             <i class="bi bi-chat"></i>  <%= post.comments.count %>
+          </li>
+          <li class="list-inline-item ms-auto"> 
+            <%= render 'like_buttons', { post: post } %> 
           </li>
           <li class="list-inline-item ms-auto">
             <i class="bi bi-calendar"></i><%= l post.created_at.in_time_zone('Tokyo'), format: :short %>
