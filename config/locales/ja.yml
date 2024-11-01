@@ -17,13 +17,21 @@ ja:
       title: 聖地詳細
     edit:
       title: 投稿編集
+    likes:
+      title: いいね一覧
+      no_result: いいねした投稿がありません。
+  likes:
+    create:
+      success: いいねしました
+    destroy:
+      success: いいねを解除しました
   header:
     login: ログイン
     logout: ログアウト
     post: 掲示板
     post_index: 掲示板一覧
     create_post: 掲示板作成
-    bookmark_index: ブックマーク一覧
+    like_index: いいね一覧
     profile: プロフィール
   user_sessions:
     new:
