@@ -29,6 +29,7 @@
                 </div>
               <% end %>
           </div>
+          <p class="location-name"><strong><%= @post.location_name %></strong></p>
           <p><i class="bi bi-geo-alt"></i> <%= @post.address %></p>
           <div class="content">
             <p><%= simple_format(@post.content) %></p>
