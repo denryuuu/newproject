@@ -106,11 +106,23 @@ h1 {
 }
 
 .card-img-top {
-  height: 200px;
+  width: 350px;
+  height: 250px;
   object-fit: cover;
 }
 
 .btn-lg {
   font-size: 1.25rem;
   padding: 0.75rem 1.25rem;
+}
+
+.location-name {
+  color: #09639f;
+  font-size: 1.15rem;
+  margin-top: 15px; 
+  margin-bottom: 15px;
+}
+
+.bi-heart, .bi-heart-fill {
+  color: #ff96ab; 
 }

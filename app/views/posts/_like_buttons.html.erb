@@ -1,0 +1,10 @@
+<div class='ms-auto'>
+  <% if current_user.like?(post) %>
+    <%= render 'unlike', { post: post } %>
+  <% else %>
+    <%= render 'like', { post: post } %>
+  <% end %>
+  <% if post.likes.count > 0 %>
+    <%= post.likes.count %>
+  <% end %>
+</div>
