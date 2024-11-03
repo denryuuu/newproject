@@ -126,3 +126,17 @@ h1 {
 .bi-heart, .bi-heart-fill {
   color: #ff96ab; 
 }
+
+.like-count {
+  margin-left: 5px; /* アイコンと数字の間にスペースを追加 */
+}
+
+.ms-auto {
+  display: flex;
+  align-items: center; /* 縦中央揃え */
+}
+
+.no-underline {
+  text-decoration: none; /* 下線を消す */
+  color: black; /* 色を黒にする */
+}

@@ -4,7 +4,10 @@
   <% else %>
     <%= render 'like', { post: post } %>
   <% end %>
-  <% if post.likes.count > 0 %>
-    <%= post.likes.count %>
-  <% end %>
+  <span class="like-count">
+  <div id="like-count-for-post-<%= post.id %>">
+    <% if post.likes.count > 0 %>
+   <%= post.likes.count %></span>
+    <% end %>
+  </div>
 </div>
