@@ -37,7 +37,9 @@
             <%= post.user.decorate.full_name %>
           </li>
           <li class="list-inline-item ms-auto">
-            <i class="bi bi-chat"></i>  <%= post.comments.count %>
+            <%= link_to post_path(post), class: 'no-underline' do %>
+              <i class="bi bi-chat"></i> <%= post.comments.count %>
+            <% end %>
           </li>
           <li class="list-inline-item ms-auto"> 
             <%= render 'like_buttons', { post: post } %> 
