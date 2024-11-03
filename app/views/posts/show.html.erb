@@ -35,12 +35,18 @@
             <p><%= simple_format(@post.content) %></p>
           </div>
         <ul class="list-inline d-flex align-items-center">
-          <li class="list-inline-item">
+          <li class="list-inline-item me-2">
             <%= image_tag @post.user.avatar_url, class: 'rounded-circle', size: '30x30' %>
           </li>
-          <li class="list-inline-item">
+          <li class="list-inline-item me-2">
             <%= @post.user.decorate.full_name %>
-          <%= l @post.created_at.in_time_zone('Tokyo'), format: :short %>
+          </li>
+          <li class="list-inline-item ms-2"> 
+            <%= render 'like_buttons', { post: @post } %> 
+          </li>
+            <li class="list-inline-item me-2">
+              <i class="bi bi-calendar"></i><%= l @post.created_at.in_time_zone('Tokyo'), format: :short %>
+            </li>
         </ul>
       </article>
     </div>
