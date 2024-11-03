@@ -1,3 +1,4 @@
+<% content_for :title, "プロフィール | EBC MAP" %>
 <div class="container">
   <div class="row">
     <div class=" col-md-10 col-lg-8 mx-auto">
@@ -15,7 +16,7 @@
       <% end %>
       <div class='text-center'>
         <%= link_to '登録ページへ', new_user_path %>
-        <%= link_to 'パスワードをお忘れの方はこちら', '#' %>
+        <%= link_to 'パスワードをお忘れの方はこちら', new_password_reset_path %>
       </div>
     </div>
   </div>
