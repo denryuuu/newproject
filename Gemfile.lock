@@ -359,6 +359,7 @@ DEPENDENCIES
   jquery-rails
   jsbundling-rails
   kaminari
+  letter_opener
   letter_opener_web (= 3.0.0)
   pg
   puma (>= 5.0)
