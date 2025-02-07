@@ -8,3 +8,10 @@ body .btn-primary:active {
     background-color: #e06693;
     border-color: #e06693;
 }
+.copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* アイテム間のスペースを調整 */
+  flex-wrap: wrap; /* レスポンシブ対応で狭い幅なら折り返す */
+}
