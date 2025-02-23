@@ -5,7 +5,8 @@ class ContactMailer < ApplicationMailer
       @contact = params[:contact]
       mail(
         subject: 'お問い合わせが届きました',
-        from: @contact.email
+        from: ENV['MAIL_FROM'], # 認証済みのメールアドレス
+        reply_to: @contact.email
       )
     end
 end

@@ -76,7 +76,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: 'smtp.sendgrid.net',
     port: 587,
-    domain: 'ebc-sanctuary-map-7d9303cf86fb.herokuapp.com', # Herokuアプリのドメイン
+    domain: 'misapri.com', # Herokuアプリのドメイン
     authentication: :plain,
     user_name: ENV['SENDGRID_USERNAME'], # 必ず環境変数を参照
     password: ENV['SENDGRID_PASSWORD'], # 必ず環境変数を参照

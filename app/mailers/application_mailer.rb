@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "ebcapp-support@misapri.com"
+  default from: ENV['MAIL_FROM']
   layout "mailer"
 end
