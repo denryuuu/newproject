@@ -50,3 +50,4 @@ config/environments/*.local.yml
 yarn-debug.log*
 .yarn-integrity
 node_modules/
+sendgrid.env
