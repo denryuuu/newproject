@@ -28,6 +28,7 @@ ja:
   header:
     login: ログイン
     logout: ログアウト
+    delete_account: アカウント削除
     post: 掲示板
     post_index: 掲示板一覧
     create_post: 掲示板作成
