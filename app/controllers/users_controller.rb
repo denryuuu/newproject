@@ -15,6 +15,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    current_user.destroy # ユーザーを完全削除（ハードデリート）
+    reset_session # セッションをリセット（ログアウト処理）
+    redirect_to root_path, notice: "退会が完了しました。"
+  end
+
   private
 
   def user_params

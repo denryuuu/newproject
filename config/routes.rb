@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'contacts#new', as: 'new_contact'
   post '/contact', to: 'contacts#create', as: 'create_contact'
 
-  resources :users, only: %i[new create]
+  resources :users, only: %i[new create destroy]
   resource :profile, only: %i[show edit update]
   resources :posts, only: %i[index new create show edit update destroy] do
     resources :comments, only: %i[create destroy], shallow: true
