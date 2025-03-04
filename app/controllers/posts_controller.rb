@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :require_login, only: %i[new create edit update destroy likes]
   def index
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true).includes(:user, :comments).order(created_at: :desc).page(params[:page])
