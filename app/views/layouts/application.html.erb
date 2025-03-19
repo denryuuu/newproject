@@ -21,9 +21,10 @@
     <%= yield %>
     <%= render 'shared/footer' %>
     <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places&callback=initMap" async defer></script>
-    <input type="text" id="location-name-input" type="text" autocomplete="off" inputmode="search" placeholder="場所名を入力" >
-    <input type="text" id="address-input" placeholder="住所" >
-
+    <% if controller_name == 'places' && action_name == 'new' %>
+      <input type="text" id="location-name-input" type="text" autocomplete="off" inputmode="search" placeholder="場所名を入力" >
+      <input type="text" id="address-input" placeholder="住所" >
+    <% end %>
     <script>
       window.initMap = function() {
         console.log("Google Maps API が読み込まれました");
