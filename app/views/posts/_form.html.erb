@@ -5,12 +5,12 @@
     <%= f.text_field :title, class: "form-control" %>
   </div>
   <div class="mb-3">
-  <%= f.label :location_name, "場所の名称" %>
-  <%= f.text_field :location_name, class: "form-control" %>
+  <%= f.label :location_name, "場所の名称", for: "location-name-input" %>
+  <%= f.text_field :location_name, class: "form-control", id: "location-name-input" %>
 </div>
 <div class="mb-3">
-  <%= f.label :address, "住所" %>
-  <%= f.text_field :address, class: "form-control", id: "place-input" %>
+  <%= f.label :address, "住所", for: "address-input" %>
+  <%= f.text_field :address, class: "form-control", id: "address-input" %>
 </div>
   <div class="mb-3">
     <%= f.label :content %>
