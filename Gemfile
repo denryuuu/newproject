@@ -39,6 +39,8 @@ gem 'draper', '4.0.2'
 gem 'carrierwave'
 gem 'hotwire-rails'
 gem 'ransack'
+gem 'dotenv-rails'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

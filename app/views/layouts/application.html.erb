@@ -20,6 +20,58 @@
     <%= render 'shared/flash_message' %>
     <%= yield %>
     <%= render 'shared/footer' %>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places&callback=initMap" async defer></script>
+    <input type="text" id="location-name-input" type="text" autocomplete="off" inputmode="search" placeholder="場所名を入力" >
+    <input type="text" id="address-input" placeholder="住所" >
+
+    <script>
+      window.initMap = function() {
+        console.log("Google Maps API が読み込まれました");
+  
+        var input = document.getElementById("location-name-input"); // 名称入力フィールド
+        var addressInput = document.getElementById("address-input"); // 住所入力フィールド
+  
+        var autocomplete = new google.maps.places.Autocomplete(input, {
+          componentRestrictions: { country: "jp" }
+        });
+  
+        autocomplete.addListener("place_changed", function() {
+          console.log("place_changed イベントが発生");
+  
+          var place = autocomplete.getPlace();
+          if (!place.geometry) {
+            console.warn("選択された場所にジオメトリ情報がありません: " + input.value);
+            return;
+          }
+          console.log("選択した場所:", place);
+  
+          // 名称欄に `place.name` をセット（住所が入らないようにする）
+          input.value = place.name || ""; 
+          console.log("名称欄に入力された名称:", input.value);
+  
+          // 住所を取得して「日本」を削除
+          var address = place.formatted_address || ""; 
+          var country = "";
+  
+          for (var i = 0; i < place.address_components.length; i++) {
+            var component = place.address_components[i];
+            if (component.types.includes("country")) {
+              country = component.long_name; // "日本"
+            }
+          }
+  
+          if (address.includes(country)) {
+            address = address.replace(country, "").trim(); // "日本" を削除
+            address = address.replace(/^、?〒\d{3}-\d{4}\s*/, ""); // 「、〒123-4567 」を削除
+            address = address.replace(/^、 /, ""); // 先頭の「, 」を削除
+          }
+  
+          addressInput.value = address; // 住所欄に設定
+          console.log("住所欄に入力された住所:", address);
+        });
+      };
+    </script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
