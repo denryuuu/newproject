@@ -1,7 +1,14 @@
 <div class="map-container">
-  <%= image_tag 'mapimage.png', alt: 'Map Image', class: 'map-image' %>
-  <div class="map-buttons">
-    <button onclick="location.href='<%= new_post_path %>'">投稿する</button>
-    <button onclick="location.href='<%= posts_path %>'">聖地を見る</button>
-  </div>
+    <iframe
+      src="https://www.google.com/maps/d/embed?mid=1QFiUYZnn7HIpaUc9iva2y-a3xkD8q_A&hl=ja&ehbc=2E312F"
+      width="100%" 
+      height="500" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy">
+    </iframe>
+      <div class="map-buttons">
+        <button onclick="location.href='<%= new_post_path %>'">投稿する</button>
+        <button onclick="location.href='<%= posts_path %>'">聖地を見る</button>
+      </div>
 </div>

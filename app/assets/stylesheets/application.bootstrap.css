@@ -4,23 +4,19 @@
     width: 100%;
     text-align: center; /* 中央揃えのスタイリング */
 }
-
-.map-image {
-    width: 100%; /* 画像がコンテナの幅に合わせて拡大/縮小されるように設定 */
-    height: auto; /* 高さは自動で調整 */
-}
   
   .map-buttons {
-    position: absolute;
-    top: 50%;  /* 親要素の中央に配置 */
+    position: absolute;  /* ここをabsoluteに戻します */
+    bottom: 20px;  /* 地図の下に配置 */
     left: 50%; /* 親要素の中央に配置 */
-    transform: translate(-50%, -50%); /* ぴったり中央にくるように調整 */
+    transform: translateX(-50%); /* 中央に配置 */
     text-align: center;
+    z-index: 10; /* ボタンが前面に表示されるように */
   }
   
   .map-buttons button {
     background-color: #ffffff;
-    border: 1px solid #ccc;
+    border: 1px solid #a7a7a7;
     padding: 10px 20px;
     margin: 10px;
     cursor: pointer;
@@ -61,7 +57,7 @@
 
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background-color: #f8f9fa;
+  background-color: #ffffff;
 }
 
 .title-background {
@@ -139,4 +135,9 @@ h1 {
 .no-underline {
   text-decoration: none; /* 下線を消す */
   color: black; /* 色を黒にする */
+}
+
+.dropdown-divider {
+  border-top: 1px solid #333 !important; /* 黒色で明確に */
+  margin: 5px 0; /* 少し余白を持たせる */
 }
