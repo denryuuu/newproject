@@ -51,7 +51,17 @@
       </article>
     </div>
       </div>
-      <%= render 'comments/form', comment: @comment, post: @post %>
+      <% if current_user %>
+        <%= render 'comments/form', comment: @comment, post: @post %>
+      <% else %>
+        <div class="col-lg-8 offset-lg-2">
+          <div class="card">
+            <div class="card-body">
+              <p>コメントを追加するには <%= link_to 'ログイン', login_path %> してください。</p>
+            </div>
+          </div>
+        </div>
+      <% end %>
       <div class="row">
         <div class="col-lg-8 offset-lg-2">
           <table class="table">
