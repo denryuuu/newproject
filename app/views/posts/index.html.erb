@@ -1,35 +1,47 @@
 <% content_for :title, "聖地一覧 | EBC MAP" %>
+
 <div class="container pt-5">
   <div class="row mb-4">
     <div class="col-lg-10 offset-lg-1">
       <%= render 'search_form', q: @q, url: posts_path %>
     </div>
   </div>
-
-  <div class="title-background">
-    <h1>聖地一覧</h1>
-  </div>
-
+<div class="container">
   <div class="row">
-    <% if @posts.present? %>
-      <div class="col-12">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-          <%= render @posts %>
-        </div>
-        <div class="d-flex justify-content-center mt-4">
-          <%= paginate @posts, theme: 'bootstrap-5' %>
-        </div>
-      </div>
-    <% else %>
-      <div class="col-12">
-        <div class="alert alert-warning" role="alert">
-          掲示板がありません
+    <!-- カテゴリ一覧 -->
+    <div class="col-lg-3">
+      <div class="category-container">
+        <h2 class="category-title">カテゴリ別</h2>
+        <div class="list-group">
+          <%= link_to 'すべて', posts_path, class: "list-group-item list-group-item-action #{'active' if params[:tag].nil?}", style: "border-radius: 10px; margin-bottom: 5px;" %>
+          <% Tag.all.each do |tag| %>
+            <%= link_to tag.name, posts_path(tag: tag.name), class: "list-group-item list-group-item-action #{'active' if params[:tag] == tag.name}" %>
+          <% end %>
         </div>
       </div>
-    <% end %>
-  </div>
-</div>
+    </div>
 
-<div class="text-center mt-4">
-  <%= link_to '聖地投稿', new_post_path, class: "btn btn-primary btn-lg" %>
+    <!-- 聖地一覧 -->
+    <div class="col-lg-9">
+      <div class="site-list-container">
+        <h2 class="site-list-title">聖地一覧</h2>
+        <% if @posts.present? %>
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 g-4">
+            <%= render @posts %>
+          </div>
+          <div class="d-flex justify-content-center mt-4">
+            <%= paginate @posts, theme: 'bootstrap-5' %>
+          </div>
+        <% else %>
+          <div class="alert alert-warning" role="alert">
+            投稿がありません
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+    <%= link_to '聖地投稿', new_post_path, class: "btn btn-primary btn-lg" %>
+  </div>
 </div>

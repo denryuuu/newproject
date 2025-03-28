@@ -86,22 +86,18 @@ body {
 .title-background {
   background-color: #ff7aaf; /* タイトルの背景色を設定 */
   color: #ffffff; /* タイトルの文字色を白に設定 */
-  width: 100vw; /* 横幅を100%に設定 */
   padding: 1rem 0; /* 上下にパディングを追加 */
   margin-bottom: 1.5rem; /* 下のマージンを追加 */
   position: relative;
   display: flex; /* 子要素の整列を制御 */
   align-items: center; /* 垂直方向の中央揃え */
   justify-content: center; /* 水平方向の中央揃え */
-  left: 50%; /* 中央揃えのための調整 */
-  right: 50%; /* 中央揃えのための調整 */
-  transform: translateX(-50%); /* 中央揃えのための調整 */
+  border-radius: 8px;
 }
 
 .title-background h1 {
   font-size: 1.5rem; /* サイズを適切に調整 */
 }
-
 
 h1 {
   font-size: 2.5rem;
@@ -175,4 +171,93 @@ h1 {
 .post-date {
   color: rgba(0, 0, 0, 0.5); 
   align-self: flex-end;
+}
+
+/* カテゴリコンテナ */
+.category-container {
+  background-color: #ffffff; /* 背景色 */
+  padding: 15px;
+  border-radius: 8px;
+}
+
+/* カテゴリタイトル */
+.category-title {
+  background-color: #ff7aaf;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 1.3rem;
+  border-radius: 8px;
+}
+
+/* カテゴリのリンク */
+.list-group-item {
+  border-radius: 8px;
+  margin-bottom: 8px;
+  background-color: transparent;
+  color: #333;
+  transition: background-color 0.3s;
+}
+
+.list-group-item.active {
+  background-color: #dcdcdc;
+  color: #333;
+}
+
+/* 聖地一覧コンテナ */
+.site-list-container {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.site-list .post-card {
+  width: calc(50% - 10px); /* 2列表示 */
+  margin-bottom: 20px;
+}
+
+.site-list-title {
+  background-color: #ff7aaf;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+/* 投稿カードのスタイル */
+.row-cols-md-2 .col {
+  flex: 1 0 48%; /* 2列に調整 */
+  margin-bottom: 20px;
+}
+
+.row-cols-lg-3 .col {
+  flex: 1 0 30%; /* 3列に調整 */
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .col-lg-3, .col-lg-9 {
+    padding: 0 10px;
+  }
+
+  .category-container {
+    padding: 10px;
+  }
+
+  .category-title {
+    font-size: 1.2rem; /* スマホでは文字を少し小さく */
+  }
+
+  /* カテゴリと聖地一覧を横並びに */
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .site-list-container .row-cols-1 {
+    flex-direction: column; /* 一列表示 */
+  }
 }
