@@ -2,7 +2,13 @@ class PostsController < ApplicationController
   before_action :require_login, only: %i[new create edit update destroy likes]
   def index
     @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true).includes(:user, :comments).order(created_at: :desc).page(params[:page])
+    posts = @q.result(distinct: true).includes(:user, :comments,:tag)
+
+    if params[:tag].present?
+      posts = posts.joins(:tag).where(tag: { name: params[:tag] })
+    end
+
+    @posts = posts.order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -12,6 +18,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
+      logger.debug "Post created with tag_id: #{post_params[:tag_id]}"
       redirect_to posts_path, success: t('defaults.flash_message.created', item: Post.model_name.human)
     else
       flash.now[:danger] = t('defaults.flash_message.not_created', item: Post.model_name.human)
@@ -32,6 +39,7 @@ class PostsController < ApplicationController
   def update
     @post = current_user.posts.find(params[:id])
     if @post.update(post_params)
+      logger.debug "Post updated with tag_id: #{post_params[:tag_id]}"
       redirect_to post_path(@post), success: t('defaults.flash_message.updated', item: Post.model_name.human)
     else
       flash.now[:danger] = t('defaults.flash_message.not_updated', item: Post.model_name.human)
@@ -52,6 +60,6 @@ class PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:title, :location_name, :address, :content, :image)
+    params.require(:post).permit(:title, :location_name, :address, :content, :image, :tag_id)
   end
 end

@@ -21,5 +21,9 @@
     <%= f.file_field :image, class: "form-control", accept: 'image/*' %>
     <%= f.hidden_field :image_cache %>
   </div>
+  <div class="mb-3">
+    <%= f.label :tag_id, "タグ" %>
+    <%= f.collection_select :tag_id, Tag.all, :id, :name, { include_blank: "選択してください" }, class: "form-select" %>
+  </div>
     <%= f.submit nil, class: "btn btn-primary" %>
 <% end %>
