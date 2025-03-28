@@ -1,13 +1,13 @@
 <% content_for :title, "聖地投稿 | EBC MAP" %>
 <div class="col-sm-12 col-lg-4 mb-3">
-<div id="post-id-<%= post.id %>">
-    <div class="card">
+  <div id="post-id-<%= post.id %>" class="h-100">
+    <div class="card h-100">
       <% if post.image.present? %>
         <%= image_tag post.image.url, class: "card-img-top", width: "300", height: "200" %>
       <% else %>
         <%= image_tag "noimage.png", class: "card-img-top", width: "300", height: "200" %>
       <% end %>
-      <div class="card-body">
+      <div class="card-body d-flex flex-column">
         <div class="d-flex">
           <h4 class="card-title">
             <%= link_to post.title, post_path(post), class: "card-title" %>
@@ -26,16 +26,21 @@
         <p class="location-name">
         <strong><%= post.location_name %></strong></p>
         <p><i class="bi bi-geo-alt"></i><%= post.address %></p>
-        <div class="content">
+        <div class="content flex-grow-1">
           <p><%= post.content %></p>
         </div>
-        <ul class="list-inline d-flex align-items-center">
-          <li class="list-inline-item">
+          <div class="d-flex align-items-center mb-2">
             <%= image_tag post.user.avatar_url, class: 'rounded-circle', size: '30x30' %>
-          </li>
-          <li class="list-inline-item">
-            <%= post.user.decorate.full_name %>
-          </li>
+            <span class="ms-2"><%= post.user.decorate.full_name %></span>
+          </div>
+          <ul class="list-inline d-flex align-items-center flex-wrap">
+            <li class="list-inline-item">
+              <div class="col-12 text-end">
+                <% if post.tag.present? %>
+                  <span class="tag-badge <%= tag_class(post.tag.name) %>"><%= post.tag.name %></span>
+                <% end %>
+               </div>
+            </li>
           <li class="list-inline-item ms-auto">
             <%= link_to post_path(post), class: 'no-underline' do %>
               <i class="bi bi-chat"></i> <%= post.comments.count %>
@@ -44,8 +49,11 @@
           <li class="list-inline-item ms-auto"> 
             <%= render 'like_buttons', { post: post } %> 
           </li>
+          <li class="w-100"></li>
           <li class="list-inline-item ms-auto">
-            <i class="bi bi-calendar"></i><%= l post.created_at.in_time_zone('Tokyo'), format: :short %>
+            <% if post.present? && post.created_at.present? %>
+              <span class="post-date"><%= l post.created_at.in_time_zone('Tokyo'), format: "%Y年 %m月 %d日" %></span>
+            <% end %>
           </li>
         </ul>
       </div>
