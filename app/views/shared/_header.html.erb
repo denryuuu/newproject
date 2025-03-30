@@ -12,6 +12,7 @@
           <div class='dropdown-item'><%= current_user.decorate.full_name %></div>
           <div class='dropdown-divider'></div>
           <%= link_to t('header.profile'), profile_path, class: 'dropdown-item' %>
+          <%= link_to t('header.my_posts'), user_posts_posts_path, class: 'dropdown-item' %>
           <%= link_to t('header.like_index'), likes_posts_path, class: 'dropdown-item' %>
           <%= form_with url: logout_path, method: :delete do %>
             <%= submit_tag t('header.logout'), class: 'dropdown-item' %>

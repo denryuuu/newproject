@@ -20,6 +20,8 @@ ja:
     likes:
       title: いいね一覧
       no_result: いいねした投稿がありません。
+    user_posts:
+      title: "自分の投稿"
   likes:
     create:
       success: いいねしました
@@ -30,6 +32,7 @@ ja:
     logout: ログアウト
     delete_account: アカウント削除
     post: 掲示板
+    my_posts: 自分の投稿
     post_index: 掲示板一覧
     create_post: 掲示板作成
     like_index: いいね一覧
