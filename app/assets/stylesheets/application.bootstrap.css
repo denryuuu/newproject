@@ -65,7 +65,8 @@
   font-size: 18px; 
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 .nav-item {
