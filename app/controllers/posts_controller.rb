@@ -53,6 +53,10 @@ class PostsController < ApplicationController
     redirect_to posts_path, success: t('defaults.flash_message.deleted', item: Post.model_name.human), status: :see_other
   end
 
+  def user_posts
+    @posts = current_user.posts # 現在ログインしているユーザーの投稿を取得
+  end
+  
   def likes
     @like_posts = current_user.like_posts.includes(:user).order(created_at: :desc)
   end

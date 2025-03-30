@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create destroy]
   resource :profile, only: %i[show edit update]
   resources :posts, only: %i[index new create show edit update destroy] do
+    collection do
+      get 'user_posts', to: 'posts#user_posts'
+    end
     resources :comments, only: %i[create destroy], shallow: true
     collection do
       get :likes
