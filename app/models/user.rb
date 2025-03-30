@@ -12,12 +12,6 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :like_posts, through: :likes, source: :post
-  validates :avatar, file_content_type: { allow: ['image/jpeg', 'image/png'] }
-
-  def own?(object)
-    id == object&.user_id
-  end
-
   def like(post)
     like_posts << post unless like?(post)
   end
@@ -30,4 +24,8 @@ class User < ApplicationRecord
     like_posts.include?(post)
   end
 
+  def own?(post)
+    id == post.user_id
+  end
+  
 end
