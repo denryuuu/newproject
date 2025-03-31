@@ -80,3 +80,5 @@ group :development do
   # gem "spring"
 end
 
+
+gem "sitemap_generator", "~> 6.3"
