@@ -313,6 +313,8 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    sitemap_generator (6.3.0)
+      builder (~> 3.0)
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
@@ -385,6 +387,7 @@ DEPENDENCIES
   rails-i18n (~> 7.0.0)
   ransack
   sassc-rails
+  sitemap_generator (~> 6.3)
   sorcery
   sprockets-rails
   sqlite3 (~> 1.4)
