@@ -40,7 +40,7 @@ gem 'carrierwave'
 gem 'hotwire-rails'
 gem 'ransack'
 gem 'dotenv-rails'
-gem "cloudinary"
+gem "cloudinary", '~> 1.17'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
