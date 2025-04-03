@@ -8,11 +8,11 @@
       <article class="card">
         <div class="card-body">
           <div class="row">
-            <div class="col-md-3">
+            <div class="text-center mb-4">
               <% if @post.image.present? %>
-                <%= image_tag @post.image.url, class: "img-fluid", width: "300", height: "200" %>
+                <%= image_tag @post.image.url, class: "img-custom" %>
               <% else %>
-                <%= image_tag "noimage.png", class: "img-fluid", width: "300", height: "200" %>
+                <%= image_tag "noimage.png", class: "img-custom" %>
               <% end %>
             </div>
         <div class="col-md-9">
