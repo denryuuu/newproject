@@ -1,8 +1,3 @@
-require 'cloudinary'
-require 'cloudinary/uploader'
-require 'cloudinary/utils'
-require 'carrierwave'
-
 CarrierWave.configure do |config|
   config.storage = :cloudinary
   config.cloudinary = {
