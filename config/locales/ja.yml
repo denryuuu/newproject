@@ -93,6 +93,7 @@ ja:
       title: プロフィール
       full_name: 名前
     edit:
+      avater: プロフィール画像
       title: プロフィール編集
       to_login_page: "ログインページに戻る"
     update:
