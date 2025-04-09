@@ -17,6 +17,21 @@ class PostsController < ApplicationController
   
   def create
     @post = current_user.posts.build(post_params)
+  
+    # トリミング後の画像データが送信されてきた場合
+    if params[:post][:cropped_image].present?
+      cropped_image_data = params[:post][:cropped_image]
+      # Base64データを画像ファイルとして保存する処理
+      file = Base64.decode64(cropped_image_data.split(',')[1])
+      io = StringIO.new(file)
+      io.class.class_eval { attr_accessor :original_filename, :content_type }
+      io.original_filename = 'cropped_image.png'
+      io.content_type = 'image/png'
+  
+      # CarrierWaveでアップロード
+      @post.image = io
+    end
+  
     if @post.save
       logger.debug "Post created with tag_id: #{post_params[:tag_id]}"
       redirect_to posts_path, success: t('defaults.flash_message.created', item: Post.model_name.human)
@@ -25,6 +40,7 @@ class PostsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+  
 
   def show
     @post = Post.find(params[:id])

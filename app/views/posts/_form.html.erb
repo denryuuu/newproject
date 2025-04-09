@@ -5,25 +5,53 @@
     <%= f.text_field :title, class: "form-control" %>
   </div>
   <div class="mb-3">
-  <%= f.label :location_name, "場所の名称", for: "location-name-input" %>
-  <%= f.text_field :location_name, class: "form-control", id: "location-name-input" %>
-</div>
-<div class="mb-3">
-  <%= f.label :address, "住所", for: "address-input" %>
-  <%= f.text_field :address, class: "form-control", id: "address-input" %>
-</div>
+    <%= f.label :location_name, "場所の名称", for: "location-name-input" %>
+    <%= f.text_field :location_name, class: "form-control", id: "location-name-input" %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :address, "住所", for: "address-input" %>
+    <%= f.text_field :address, class: "form-control", id: "address-input" %>
+  </div>
   <div class="mb-3">
     <%= f.label :content %>
     <%= f.text_area :content, class: "form-control", row: "10", style: "height: 200px" %>
   </div>
   <div class="mb-3">
     <%= f.label :image %>
-    <%= f.file_field :image, class: "form-control", accept: 'image/*' %>
+    <%= f.file_field :image, class: "form-control", accept: 'image/*', id: "image-input" %>
     <%= f.hidden_field :image_cache %>
+  </div>
+  <div class="mb-3">
+  <button type="button" class="btn btn-secondary" id="open-cropper-modal">
+    トリミングする
+  </button>
+  <div class="modal fade" id="cropperModal" tabindex="-1" aria-labelledby="cropperModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cropperModalLabel">画像をトリミング</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img id="modal-image" src="" alt="Image for cropping" style="max-width: 100%; display: block;">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="apply-crop-btn-modal" class="btn btn-primary">トリミングを適用</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- 画像プレビュー用 -->
+  <div class="mb-3">
+    <img id="image-preview" src="<%= asset_path('noimage.png') %>" alt="Preview" style="max-width: 100%;">
   </div>
   <div class="mb-3">
     <%= f.label :tag_id, "タグ" %>
     <%= f.collection_select :tag_id, Tag.all, :id, :name, { include_blank: "選択してください" }, class: "form-select" %>
   </div>
+  <div class="mb-3">
     <%= f.submit nil, class: "btn btn-primary" %>
+  </div>
 <% end %>
