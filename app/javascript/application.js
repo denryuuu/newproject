@@ -7,3 +7,4 @@ Turbo.session.drive = true;
 import Cropper from 'cropperjs';
 import "./cropper" 
 window.Cropper = Cropper;
+import "./profile_cropper";
