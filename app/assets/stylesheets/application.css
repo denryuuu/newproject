@@ -16,3 +16,86 @@ body .btn-primary:active {
   gap: 10px; /* アイテム間のスペースを調整 */
   flex-wrap: wrap; /* レスポンシブ対応で狭い幅なら折り返す */
 }
+
+#open-cropper-modal {
+  background-color: #ff7aaf; /* ピンク色 */
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+  outline: none;
+  box-shadow: none;
+}
+
+#open-cropper-modal:hover {
+  background-color: #f797c7; /* ホバー時の薄いピンク */
+  color: white;
+}
+
+#open-cropper-modal:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.btn-outline-pink:focus,
+.btn-outline-pink:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+#image_to_crop {
+  display: block;
+  max-width: 100%;
+  max-height: 70vh;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+#avater-preview {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 1rem auto;
+}
+
+.modal-body {
+  text-align: center;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+.modal-body img {
+  margin: 0 auto;
+  display: block;
+}
+
+.cropper-crop-box,
+.cropper-view-box {
+  border-radius: 50% !important;
+  overflow: hidden;
+}
+
+.dropdown-item:focus,
+.dropdown-item:active {
+  background-color: #f8d7da !important; /* 薄ピンクに */
+  color: black !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.btn-outline-pink {
+  color: #ff7aaf;
+  border-color: #ff7aaf;
+}
+
+.btn-outline-pink:hover,
+.btn-outline-pink:focus,
+.btn-outline-pink:active,
+.btn-outline-pink.active {
+  color: #fff;
+  background-color: #ff7aaf;
+  border-color: #ff7aaf;
+}

@@ -65,6 +65,7 @@ ja:
       comment: コメント
     attributes:
       user:
+        avatar: プロフィール画像
         full_name: 名前
         email: メールアドレス
         last_name: 姓
@@ -93,7 +94,6 @@ ja:
       title: プロフィール
       full_name: 名前
     edit:
-      avater: プロフィール画像
       title: プロフィール編集
       to_login_page: "ログインページに戻る"
     update:
