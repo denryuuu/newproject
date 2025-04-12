@@ -49,11 +49,10 @@ body .btn-primary:active {
   margin-left: auto;
   margin-right: auto;
   object-fit: contain;
-  border-radius: 50%;
 }
 
 #avater-preview {
-  width: 150px;
+  widtedith: 150px;
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
@@ -71,11 +70,11 @@ body .btn-primary:active {
   margin: 0 auto;
   display: block;
 }
-
-.cropper-crop-box,
-.cropper-view-box {
+body.users.edit .cropper-crop-box,
+body.users.edit .cropper-view-box,
+body.users.edit .cropper-face {
   border-radius: 50% !important;
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 .dropdown-item:focus,

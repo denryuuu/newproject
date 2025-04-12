@@ -1,6 +1,6 @@
 import Cropper from "cropperjs";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const input = document.getElementById("avatar_input");
   const preview = document.getElementById("avatar_preview");
   const imageToCrop = document.getElementById("image_to_crop");
@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const cropAndSetButton = document.getElementById("crop_and_set");
 
   let cropper;
-  let fileDataUrl;
 
   if (!input || !imageToCrop || !preview) return;
 
@@ -17,25 +16,30 @@ document.addEventListener("DOMContentLoaded", () => {
     if (file) {
       const reader = new FileReader();
       reader.onload = (e) => {
+        imageToCrop.src = "";
+        preview.src = "";
+
+        imageToCrop.onload = () => {
+          cropButton.disabled = false;
+          cropButton.classList.remove("btn-outline-secondary");
+          cropButton.classList.add("btn-outline-pink");
+
+          if (cropper) {
+            cropper.destroy();
+            cropper = null;
+          }
+        };
+
         imageToCrop.src = e.target.result;
         preview.src = e.target.result;
-
-        // ボタン色＆有効化
-        const cropButtonTrigger = document.getElementById("crop_button");
-        cropButtonTrigger.disabled = false;
-        cropButtonTrigger.classList.remove("btn-outline-secondary");
-        cropButtonTrigger.classList.add("btn-outline-pink");
-
-        if (cropper) {
-          cropper.destroy();
-          cropper = null;
-        }
+        preview.style.borderRadius = "50%";
       };
       reader.readAsDataURL(file);
     }
   });
 
   const modal = document.getElementById("cropModal");
+
   modal.addEventListener("shown.bs.modal", () => {
     if (cropper) {
       cropper.destroy();
@@ -47,19 +51,17 @@ document.addEventListener("DOMContentLoaded", () => {
       dragMode: "move",
       autoCropArea: 1,
       ready() {
-        const cropBox = document.querySelector(".cropper-crop-box");
-        const face = document.querySelector(".cropper-face");
-        if (cropBox && face) {
-          cropBox.style.borderRadius = "50%";
-          face.style.borderRadius = "50%";
-        }
-
-        // モーダル内の画像を中央に配置
         imageToCrop.style.display = "block";
-        imageToCrop.style.marginLeft = "auto";
-        imageToCrop.style.marginRight = "auto";
+        imageToCrop.style.margin = "0 auto";
         imageToCrop.style.maxWidth = "100%";
         imageToCrop.style.maxHeight = "70vh";
+
+        setTimeout(() => {
+          document.querySelectorAll(".cropper-crop-box, .cropper-face").forEach((el) => {
+            el.style.borderRadius = "50%";
+            el.style.overflow = "hidden";
+          });
+        }, 100);
       }
     });
   });

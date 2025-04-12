@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   console.log("JS loaded");
 
   const imageInput = document.getElementById("image-input");
@@ -19,13 +19,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const reader = new FileReader();
     reader.onload = (event) => {
       imageDataUrl = event.target.result;
-      console.log("読み込みimageDataUrl:", imageDataUrl);
-      
-      previewImage.src = imageDataUrl;
-      // プレビュー画像の設定
+
+      // まずsrcをリセットしてから再代入（1回目で画像が表示されない問題の対策）
+      previewImage.src = "";
       previewImage.onload = () => {
         console.log("プレビュー画像が読み込まれました");
       };
+
+      previewImage.src = imageDataUrl;
     };
     reader.readAsDataURL(file);
   });
@@ -36,14 +37,16 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("先に画像を選択してください");
       return;
     }
-    
+
     const bsModal = new bootstrap.Modal(modal);
 
     modalImage.onload = () => {
       bsModal.show();
     };
 
-    modalImage.src = imageDataUrl;  // モーダルにも画像を設定
+    // モーダル内の画像も一度リセットしてから再設定
+    modalImage.src = "";
+    modalImage.src = imageDataUrl;
   });
 
   // モーダル表示時にCropperを初期化
@@ -51,9 +54,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (cropper) {
       cropper.destroy();
     }
+
     cropper = new Cropper(modalImage, {
       aspectRatio: 4 / 3,
-      viewMode: 2, // 画像がモーダル内に収まるように設定
+      viewMode: 2,
     });
   });
 
