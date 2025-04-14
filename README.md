@@ -29,35 +29,32 @@
 TwitterやInstagram等のSNSでサービスの利用を呼びかける。
 
 ## ■ サービスの差別化ポイント・推しポイント
-今の所、同じサービスがネット上にはないためいち早く市場シェアを獲得し、ユーザー認知を広げる。  
-多くのユーザーに利用してもらうことで、ここでしか得られない情報が生まれる。  
-検索機能により、自分の居住地域に聖地があるか調べることができる。  
+* 同様のサービスが存在しないため、先行者利益を活かして市場シェアを獲得。
+​* ユーザー投稿による独自の情報が集まり、ここでしか得られないコンテンツが形成される。​
+* 検索機能により、自分の居住地域に聖地があるかを簡単に調べられる。  
 
-## ■ 機能候補
-（MVP）  
-ユーザー登録  
-ログイン  
-プロフィール編集  
-投稿  
-検索機能  
-一覧表示  
-いいね  
-画像加工  
-地図機能  
 
-## ■ 機能の実装方針予定
-### 言語・フレームワーク
-ルビー  
-Ruby on Rails  
-### データベース
-PostgreSQL
-### ソースコードの管理
-Git・GitHub
-### 外部API
-Googleマップ（地図機能）
+## ■ 主な機能一覧
+* ユーザー登録・ログイン・プロフィール編集​
+* 聖地の投稿（写真・位置情報・コメント）​
+* 聖地の検索（地名・キーワード）​
+* 投稿一覧表示​
+* いいね機能​
+* コメント機能
+* 画像加工（トリミング・丸型表示）​
+* 地図表示（Google Maps API）​
 
-## ■ 画面遷移図　　
-https://www.figma.com/file/iS2tpjzHg4M4v8AKD3Yj3q/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3%EF%BC%88%E8%81%96%E5%9C%B0%E5%B7%A1%E7%A4%BC%E3%83%9E%E3%83%83%E3%83%97%EF%BC%89?type=design&mode=design&t=RuIpIpIWXSIpMdWw-0
+## ■ 技術スタック
+* **言語・フレームワーク**: Ruby / Ruby on Rails​
+* **ホスティング**: Heroku
+* **データベース**: PostgreSQL​
+* **画像アップロード・加工**: Cloudinary
+* **メール送信**: Twilio SendGrid
+* **外部API**: Google Maps API（地図機能）​
+* **ソースコード管理**: Git / GitHub​
 
-## ■ ER図　　
+## ■ 補足資料
+* **画面遷移図** https://www.figma.com/file/iS2tpjzHg4M4v8AKD3Yj3q/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3%EF%BC%88%E8%81%96%E5%9C%B0%E5%B7%A1%E7%A4%BC%E3%83%9E%E3%83%83%E3%83%97%EF%BC%89?type=design&mode=design&t=RuIpIpIWXSIpMdWw-0
+* **ER図**
 ![app](https://github.com/denryuuu/newproject/assets/138588277/40b6e359-9d16-41cf-99e2-02ad3167d8b3)
+
